@@ -4,8 +4,14 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-    - uses: make setup
-    - uses: npm test
-    - run: npm run lint
-    - name: run tests
-      run: make test
+      
+      - uses: actions/checkout@v2
+      
+      - uses: actions/setup-node@v1
+     
+      - run: npm install
+     
+      - run: npm run lint
+
+      - name: run tests
+        run: npm test 
